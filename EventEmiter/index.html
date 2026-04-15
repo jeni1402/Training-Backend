@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EventEmitter No Express</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>EventEmitter </h1>
+
+<button onclick="register()">Register</button>
+<button onclick="order()">Order</button>
+
+<p id="msg"></p>
+
+<script>
+function register() {
+    fetch('/register')
+        .then(res => res.text())
+        .then(data => document.getElementById('msg').innerText = data);
+}
+
+function order() {
+    fetch('/order')
+        .then(res => res.text())
+        .then(data => document.getElementById('msg').innerText = data);
+}
+</script>
+
+</body>
+</html>
