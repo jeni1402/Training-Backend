@@ -9,24 +9,10 @@ const app = express();
 
 app.use(express.json());
 
-/*
-Dummy Login API
-
-Admin:
-{
-   "email":"admin@gmail.com"
-}
-
-HR:
-{
-   "email":"hr@gmail.com"
-}
-
-Employee:
-{
-   "email":"employee@gmail.com"
-}
-*/
+app.use((req, res, next) => {
+    console.log("Request:", req.method, req.url);
+    next();
+});
 
 app.post("/login", (req, res) => {
 
@@ -77,10 +63,7 @@ app.get("/", (req, res) => {
 
 app.use("/api", employeeRoutes);
 
-app.use((req, res, next) => {
-    console.log("Request:", req.method, req.url);
-    next();
-});
+
 
 app.listen(process.env.PORT, () => {
     console.log(`Server Running on port ${process.env.PORT}`);

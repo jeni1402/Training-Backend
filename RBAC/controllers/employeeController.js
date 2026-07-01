@@ -1,4 +1,4 @@
-// controllers/employeeController.js
+
 
 export const getEmployees = (req, res) => {
 
